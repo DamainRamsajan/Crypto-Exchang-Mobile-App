@@ -1,7 +1,4 @@
-import { Entypo } from '@expo/vector-icons';
-import { Ionicons } from '@expo/vector-icons';
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { AntDesign } from '@expo/vector-icons';
+import { Entypo, MaterialIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import * as React from 'react';
@@ -25,40 +22,40 @@ export default function BottomTabNavigator() {
   return (    
     <BottomTab.Navigator
       initialRouteName="Home"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{ activeTintColor: "yellow", inactiveTintColor: "white", activeBackgroundColor: "#CC5500", inactiveBackgroundColor: "black" }}>
       <BottomTab.Screen
         name="Home"
         component={HomeScreen}
         options={{
-          tabBarIcon: ({ color }) => <Entypo name="home" color={color} size = {24}/>,
+          tabBarIcon: ({ color }) => <Entypo name="home" color={color} size = {30}/>,
         }}
       />
       <BottomTab.Screen
         name="Portfolio"
         component={PortfolioScreen}
         options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="business-center" color={color} size = {24}/>,
+          tabBarIcon: ({ color }) => <AntDesign name="piechart" color={color} size = {30}/>,
         }}
       />
       <BottomTab.Screen
         name="Market"
         component={MarketScreen}
         options={{
-          tabBarIcon: ({ color }) => <Entypo name="shop" color={color} size = {24} />,
+          tabBarIcon: ({ color }) => <FontAwesome5 name="chart-line" color={color} size = {30} />,
         }}
       />
       <BottomTab.Screen
         name="Rankings"
         component={RankingsScreen}
         options={{
-          tabBarIcon: ({ color }) => <MaterialIcons name="star-rate" color={color} size = {24}/>,
+          tabBarIcon: ({ color }) => <MaterialIcons name="leaderboard" color={color} size = {30}/>,
         }}
       />
       <BottomTab.Screen
         name="Profile"
         component={ProfileScreen}
         options={{
-          tabBarIcon: ({ color }) => <AntDesign name="profile" color={color} size = {24} />,
+          tabBarIcon: ({ color }) => <FontAwesome name="user" color={color} size = {30} />,
         }}
       />
     </BottomTab.Navigator>
