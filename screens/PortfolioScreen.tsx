@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import PortfolioCoin from '../components/PortfolioCoin';
+import { ScrollView } from 'react-native-gesture-handler';
 
 const portfolioCoins = [
     {
@@ -9,7 +10,7 @@ const portfolioCoins = [
         name: "Bitcoin",
         image: "https://e7.pngegg.com/pngimages/169/25/png-clipart-bitcoin-computer-icons-logo-cryptocurrency-bitcoin-logo-gold.png",
         symbol: "BTC",
-        amount: 37000,
+        amount: 23000,
         valueUSD: 1312
     },
     {
@@ -27,99 +28,77 @@ const portfolioCoins = [
         symbol: "LTC",
         amount: 10000,
         valueUSD: 1512
-    }
+    },
+    {
+        id: "4",
+        name: "Viacoin",
+        image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/512/Viacoin-icon.png",
+        symbol: "VIA",
+        amount: 8000,
+        valueUSD: 912
+    },
+    {
+        id: "5",
+        name: "Ripple",
+        image: "https://p1.hiclipart.com/preview/227/391/638/circle-icon-bitcoin-icon-cryptocurrency-icon-line-icon-ripple-icon-template-icon-yellow-body-jewellery-png-clipart.jpg",
+        symbol: "XRP",
+        amount: 6000,
+        valueUSD: 772
+    },
+    {
+        id: "6",
+        name: "Litecoin",
+        image: "https://cdn3.iconfinder.com/data/icons/currency-and-cryptocurrency-signs/64/cryptocurrency_blockchain_Litecoin_LTC-512.png",
+        symbol: "LTC",
+        amount: 10000,
+        valueUSD: 1512
+    },
+    {
+        id: "7",
+        name: "Viacoin",
+        image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/512/Viacoin-icon.png",
+        symbol: "VIA",
+        amount: 8000,
+        valueUSD: 912
+    },
+    {
+        id: "8",
+        name: "Ripple",
+        image: "https://p1.hiclipart.com/preview/227/391/638/circle-icon-bitcoin-icon-cryptocurrency-icon-line-icon-ripple-icon-template-icon-yellow-body-jewellery-png-clipart.jpg",
+        symbol: "XRP",
+        amount: 6000,
+        valueUSD: 772
+    },
+    
+    
 ]
 
 const PortfolioScreen = () => {
     return (
-        <View style = {styles.container}>
-            <Image style = {styles.image} source ={require("../assets/images/portfolio.png")} />
+        <ScrollView >
+            <Image style = {styles.image} source ={require("../assets/images/portfolio1.png")} />
             <Text style = {styles.heading}>Portfolio Balance</Text>
-            <Text style = {styles.description}>$72,000</Text>
-
+            <Text style = {styles.description}>$72,000</Text>            
             <FlatList 
                 data = {portfolioCoins}
                 renderItem = {({item}) => <PortfolioCoin portfolioCoin = {item}/>}
             />
-
-            {/* <View style = {styles.rowContainer}>
-                <View style = {styles.leftContainer}>
-                    <FontAwesome5 name="bitcoin" color="orange" size = {50}/>
-                    <View>
-                        <Text style = {styles.coinName}>Bitcoin</Text>
-                        <Text style = {styles.coinAbr}>BTC</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style = {styles.coinTotal}>$37,000</Text>
-                    <Text style = {styles.coinCost}>$1,312</Text>
-                </View>
-            </View>
-
-            
-            <View style = {styles.rowContainer}>
-                <View style = {styles.leftContainer}>
-                    <FontAwesome5 name="ethereum" color="black" size = {70}/>
-                    <View>
-                        <Text style = {styles.coinName}>Ethereum</Text>
-                        <Text style = {styles.coinAbr}>ETH</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style = {styles.coinTotal}>$17,000</Text>
-                    <Text style = {styles.coinCost}>$1,912</Text>
-                </View>
-            </View>
-
-            
-            <View style = {styles.rowContainer}>
-                <View style = {styles.leftContainer}>
-                    <MaterialCommunityIcons name="litecoin" color="orange" size = {50}/>
-                    <View>
-                        <Text style = {styles.coinName}>Litecoin</Text>
-                        <Text style = {styles.coinAbr}>BTC</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style = {styles.coinTotal}>$10,000</Text>
-                    <Text style = {styles.coinCost}>$1,512</Text>
-                </View>
-            </View>
-
-            
-            <View style = {styles.rowContainer}>
-                <View style = {styles.leftContainer}>
-                    <FontAwesome name="viacoin" color="orange" size = {50}/>
-                    <View>
-                        <Text style = {styles.coinName}>viacoin</Text>
-                        <Text style = {styles.coinAbr}>VIA</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style = {styles.coinTotal}>$8,000</Text>
-                    <Text style = {styles.coinCost}>$1,612</Text>
-                </View>
-            </View> */}
-        </View>
+        </ScrollView>
     )
 }
 
 export default PortfolioScreen
 
 const styles = StyleSheet.create({
-    container: {
-        alignItems: "center",
-        
-    },
     image: {
-        marginTop: 10,
+        marginTop: 30,
         height: Dimensions.get("screen").height/3, 
         width: Dimensions.get("screen").width, 
         resizeMode: "contain",
     },
     heading: {
         fontSize: 14,
-        // marginTop: 10,
+        alignSelf: "center"
     },
     description: {
         fontSize: 34,

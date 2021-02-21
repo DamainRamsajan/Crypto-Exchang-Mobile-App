@@ -3,20 +3,20 @@ import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export interface PortfolioCoinProps {
-    portfolioCoin: {
+export interface MarketCoinProps {
+    marketCoin: {
         image: String,
         name: String,
         symbol: String,
-        amount: Number,
+        valueChange: Number,
         valueUSD: Number
     }
 }
 
-const PortfolioCoin = (props: PortfolioCoinProps) => {
+const MarketCoin = (props: MarketCoinProps) => {
 
-    const { portfolioCoin: {
-        image, name, symbol, amount, valueUSD
+    const { marketCoin: {
+        image, name, symbol, valueChange, valueUSD
     }} = props;
 
     return (
@@ -31,15 +31,15 @@ const PortfolioCoin = (props: PortfolioCoinProps) => {
                     </View>
                 </View>
                 <View>
-                    <Text style = {styles.coinTotal}>${amount}</Text>
-                    <Text style = {styles.coinCost}>${valueUSD}</Text>
+                    <Text style = {styles.coinTotal}>${valueUSD}</Text>
+                    <Text style = {{color: valueChange > 0 ? "#399a703" : "#f10000"}}>{valueChange > 0 && "+"}{valueChange} </Text>
                 </View>
             </View>
         </TouchableWithoutFeedback>
     )
 }
 
-export default PortfolioCoin
+export default MarketCoin
 
 const styles = StyleSheet.create({
     rowContainer: {
