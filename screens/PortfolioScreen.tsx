@@ -1,6 +1,34 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Dimensions } from 'react-native';
+import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
+import PortfolioCoin from '../components/PortfolioCoin';
+
+const portfolioCoins = [
+    {
+        id: "1",
+        name: "Bitcoin",
+        image: "https://e7.pngegg.com/pngimages/169/25/png-clipart-bitcoin-computer-icons-logo-cryptocurrency-bitcoin-logo-gold.png",
+        symbol: "BTC",
+        amount: 37000,
+        valueUSD: 1312
+    },
+    {
+        id: "2",
+        name: "Ethereum",
+        image: "https://banner2.cleanpng.com/20201213/pzf/transparent-ethereum-icon-cryptocurrency-icon-5fd5c1f798d4d1.019405991607844343626.jpg",
+        symbol: "ETH",
+        amount: 17000,
+        valueUSD: 1912
+    },
+    {
+        id: "3",
+        name: "Litecoin",
+        image: "https://cdn3.iconfinder.com/data/icons/currency-and-cryptocurrency-signs/64/cryptocurrency_blockchain_Litecoin_LTC-512.png",
+        symbol: "LTC",
+        amount: 10000,
+        valueUSD: 1512
+    }
+]
 
 const PortfolioScreen = () => {
     return (
@@ -9,7 +37,12 @@ const PortfolioScreen = () => {
             <Text style = {styles.heading}>Portfolio Balance</Text>
             <Text style = {styles.description}>$72,000</Text>
 
-            <View style = {styles.rowContainer}>
+            <FlatList 
+                data = {portfolioCoins}
+                renderItem = {({item}) => <PortfolioCoin portfolioCoin = {item}/>}
+            />
+
+            {/* <View style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
                     <FontAwesome5 name="bitcoin" color="orange" size = {50}/>
                     <View>
@@ -66,7 +99,7 @@ const PortfolioScreen = () => {
                     <Text style = {styles.coinTotal}>$8,000</Text>
                     <Text style = {styles.coinCost}>$1,612</Text>
                 </View>
-            </View>
+            </View> */}
         </View>
     )
 }
