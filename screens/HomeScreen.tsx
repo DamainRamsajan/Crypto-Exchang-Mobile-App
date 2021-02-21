@@ -7,6 +7,7 @@ const HomeScreen = () => {
             <Image style = {styles.image} source ={require("../assets/images/logo2.png")} />
             <Text style = {styles.heading}>Welcome to Krypto</Text>
             <Text style = {styles.description}>Invest Fake money in a sym crypto exchange that mimics real crypto currency trends.</Text>
+            <Image style = {styles.bottomImage} source ={require("../assets/images/crypto.jpg")} />
         </View>
     )
 }
@@ -24,13 +25,19 @@ const styles = StyleSheet.create({
         width: Dimensions.get("screen").width, 
         resizeMode: "cover"
     },
+    bottomImage: {
+        marginTop: 15,
+        height: 155, 
+        width: Dimensions.get("screen").width, 
+        resizeMode: "cover"
+    },
     heading: {
         fontSize: 26,
         fontWeight: "bold",
         marginTop: 10,
     },
     description: {
-        fontSize: 14,
+        fontSize: 18,
         textAlign: "center",
         marginTop: 10,
         marginHorizontal: 10,
