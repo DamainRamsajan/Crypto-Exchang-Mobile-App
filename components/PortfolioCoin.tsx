@@ -23,7 +23,6 @@ const PortfolioCoin = (props: PortfolioCoinProps) => {
         <TouchableWithoutFeedback>
             <View style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
-                    {/* <FontAwesome name="viacoin" color="orange" size = {50}/> */}
                     <Image style = {styles.image} source = {{uri:image}} />
                     <View>
                         <Text style = {styles.coinName}>{name}</Text>

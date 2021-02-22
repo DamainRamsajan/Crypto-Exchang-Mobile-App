@@ -8,19 +8,21 @@ export interface UserDetailsProps {
         image: String,
         name: String,
         netWorth: Number
+        rank: Number
     }
 }
 
 const UserDetails = (props: UserDetailsProps) => {
 
     const { userDetails: {
-        image, name, netWorth
+        image, name, netWorth, rank
     }} = props;
 
     return (
         <TouchableWithoutFeedback>
             <View style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
+                    <Text style = {styles.rank}>{rank}</Text>
                     <Image style = {styles.image} source = {{uri:image}} />
                     <View>
                         <Text style = {styles.coinName}>{name}</Text>
@@ -48,6 +50,10 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         marginLeft: 10,
+    },
+    rank: {
+        fontSize: 18,
+        width: 20,
     },
     image: {
         width: 50,
