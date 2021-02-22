@@ -30,7 +30,7 @@ const ProfileScreen = () => {
                 <Text style = {styles.networth}>$72000</Text>
             </View>
             <Pressable style = {styles.pressable} onPress = {signOut}>
-                <Text>Sign Out</Text>
+                <Text style = {styles.buttonText}>Sign Out</Text>
             </Pressable>
         </View>
     )
@@ -88,9 +88,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         marginTop:260,
         alignSelf: "center",
-        color: "white",
         width: 120,
-        height: 30,
-        
+        height: 30,        
+    },
+    buttonText: {
+        color: "black",
+        fontSize: 16,
     }
 })
