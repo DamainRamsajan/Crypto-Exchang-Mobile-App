@@ -3,43 +3,38 @@ import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 
-export interface MarketCoinProps {
-    marketCoin: {
+export interface UserDetailsProps {
+    userDetails: {
         image: String,
         name: String,
-        symbol: String,
-        valueChange: Number,
-        valueUSD: Number
+        netWorth: Number
     }
 }
 
-const MarketCoin = (props: MarketCoinProps) => {
+const UserDetails = (props: UserDetailsProps) => {
 
-    const { marketCoin: {
-        image, name, symbol, valueChange, valueUSD
+    const { userDetails: {
+        image, name, netWorth
     }} = props;
 
     return (
         <TouchableWithoutFeedback>
             <View style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
-                    {/* <FontAwesome name="viacoin" color="orange" size = {50}/> */}
                     <Image style = {styles.image} source = {{uri:image}} />
                     <View>
                         <Text style = {styles.coinName}>{name}</Text>
-                        <Text style = {styles.coinAbr}>{symbol}</Text>
                     </View>
                 </View>
                 <View>
-                    <Text style = {styles.coinTotal}>${valueUSD}</Text>
-                    <Text style = {{color: valueChange > 0 ? "#399a70" : "#f10000"}}>{valueChange > 0 && "+"}{valueChange} </Text>
+                    <Text style = {styles.coinTotal}>${netWorth}</Text>
                 </View>
             </View>
         </TouchableWithoutFeedback>
     )
 }
 
-export default MarketCoin
+export default UserDetails
 
 const styles = StyleSheet.create({
     rowContainer: {
@@ -57,7 +52,8 @@ const styles = StyleSheet.create({
     image: {
         width: 50,
         height: 50,
-        resizeMode: "contain"
+        resizeMode: "cover",
+        borderRadius: 250
     },
     coinName: {
         marginLeft: 10,

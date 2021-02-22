@@ -1,93 +1,49 @@
 import React from 'react'
 import { StyleSheet, Text, View, Image, Dimensions, FlatList } from 'react-native';
-import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
-import PortfolioCoin from '../components/PortfolioCoin';
 import { ScrollView } from 'react-native-gesture-handler';
-import MarketCoin from '../components/MarketCoin';
+import UserDetails from '../components/UserDetails';
 
-const marketCoins = [
+const userDetails = [
     {
         id: "1",
-        name: "Bitcoin",
-        image: "https://e7.pngegg.com/pngimages/169/25/png-clipart-bitcoin-computer-icons-logo-cryptocurrency-bitcoin-logo-gold.png",
-        symbol: "BTC",
-        valueChange: .23,
-        valueUSD: 1312
-    },
+        name: "Damain Ramsajan",
+        image: "https://lh3.googleusercontent.com/-vjTYprSlfpk/X-xO4fzx7nI/AAAAAAAAA0c/znVeQepoBdcCl-xBK-R1-iLgiqZwEGChACEwYBhgLKtMDAL1OcqxdmWXxTnzoYvUqunfXJtj6zxMfIJrjRyPJHyoy83dQsc3l09ccMMLs8N53oH8sn84Rt1qatZXrUvT_S7Qztl8l4ejmdQK-lnUrbN78Wv1IWuRzereQCPIg72CHc0jW96zQbzkZaCN2F5j7DhW8M4ZpfCHdQhIIAh7Dg3N16VoiYqHjS4eZsqGrRoPgb1p64wG7xCyfQR34MczqwG9k1e2XvAA214Wolbsxtzi-LQZjiXNENP8yigWd1tBgvjUHcRURdQnGRg6mz5LRP07nGBfu6LCcP7XsUo7bDVU5L5pEKquW4w9ntZB6prCd2LAu58ytd7q6qRcmIAGeaNpXe6ghU-zjg0muojv_zYzbyJ6PZsT9lN8ISR7kPYH_EfAcVYezcCQ3kDQmyO_QcLHvTTSwfloGqSsh-sn9he9S1RqxT7H2b9cf5jOWN_aOGx6v2VdvFAG8bdJYkyXBf-ce8qjvqYeZmW_cwGAy8F3kcLFKFFuVef8V2dORKQT8SQhZTNBmusU1EgUZplEtfl2PTbsLhmWlvmbbsBV5Afri8m7lqwFPbjtrye-ocdbkBNNxCMaJlIA83Rf3tT3mRBHKZfor_4PQ3xxeT4O83iZpfBwwjv3MgQY/w140-h140-p/DPR.png",
+        netWorth: 72000
+    },    
     {
         id: "2",
-        name: "Ethereum",
-        image: "https://banner2.cleanpng.com/20201213/pzf/transparent-ethereum-icon-cryptocurrency-icon-5fd5c1f798d4d1.019405991607844343626.jpg",
-        symbol: "ETH",
-        valueChange: 1.7,
-        valueUSD: 1912
-    },
+        name: "Bob Marley",
+        image: "https://i.ytimg.com/vi/g3t6YDnGXAc/hqdefault.jpg",
+        netWorth: 64000
+    },   
     {
         id: "3",
-        name: "Litecoin",
-        image: "https://cdn3.iconfinder.com/data/icons/currency-and-cryptocurrency-signs/64/cryptocurrency_blockchain_Litecoin_LTC-512.png",
-        symbol: "LTC",
-        valueChange: -1.4,
-        valueUSD: 1512
-    },
+        name: "Pryanka Chopra",
+        image: "https://www.thenews.com.pk//assets/uploads/updates/2020-03-19/631462_3231801_12A-Priyanka-Chopra_updates.jpg",
+        netWorth: 52000
+    },   
     {
         id: "4",
-        name: "Viacoin",
-        image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/512/Viacoin-icon.png",
-        symbol: "VIA",
-        valueChange: .82,
-        valueUSD: 9126
-    },
-    {
-        id: "5",
-        name: "Ripple",
-        image: "https://p1.hiclipart.com/preview/227/391/638/circle-icon-bitcoin-icon-cryptocurrency-icon-line-icon-ripple-icon-template-icon-yellow-body-jewellery-png-clipart.jpg",
-        symbol: "XRP",
-        valueChange: 1.2,
-        valueUSD: 7725
-    },
-    {
-        id: "6",
-        name: "Litecoin",
-        image: "https://cdn3.iconfinder.com/data/icons/currency-and-cryptocurrency-signs/64/cryptocurrency_blockchain_Litecoin_LTC-512.png",
-        symbol: "LTC",
-        valueChange: -.75,
-        valueUSD: 1512
-    },
-    {
-        id: "7",
-        name: "Viacoin",
-        image: "https://icons.iconarchive.com/icons/cjdowner/cryptocurrency/512/Viacoin-icon.png",
-        symbol: "VIA",
-        valueChange: -.45,
-        valueUSD: 9122
-    },
-    {
-        id: "8",
-        name: "Ripple",
-        image: "https://p1.hiclipart.com/preview/227/391/638/circle-icon-bitcoin-icon-cryptocurrency-icon-line-icon-ripple-icon-template-icon-yellow-body-jewellery-png-clipart.jpg",
-        symbol: "XRP",
-        valueChange: .67,
-        valueUSD: 7724
-    },
-    
-    
+        name: "Mr. Bean",
+        image: "https://static.wikia.nocookie.net/mrbean/images/4/4b/Mr_beans_holiday_ver2.jpg",
+        netWorth: 36000
+    } 
 ]
 
-const MarketScreen = () => {
+const RankingsScreen = () => {
     return (
         <ScrollView >
             <Image style = {styles.image} source ={require("../assets/images/rankings.jpg")} />
             <Text style = {styles.description}>Rankings</Text>            
             <FlatList 
-                data = {marketCoins}
-                renderItem = {({item}) => <MarketCoin marketCoin = {item}/>}
+                data = {userDetails}
+                renderItem = {({item}) => <UserDetails userDetails = {item}/>}
             />
         </ScrollView>
     )
 }
 
-export default MarketScreen
+export default RankingsScreen
 
 const styles = StyleSheet.create({
     image: {
