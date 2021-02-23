@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
+import { Dimensions, StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 
 const CoinDetailsScreen = () => {
@@ -8,9 +8,21 @@ const CoinDetailsScreen = () => {
         name: "Bitcoin",
         image: "https://e7.pngegg.com/pngimages/169/25/png-clipart-bitcoin-computer-icons-logo-cryptocurrency-bitcoin-logo-gold.png",
         symbol: "BTC",
-        valueChange: -.75,
-        currentPrice: 1512
-    })
+        valueChange1H: .25,
+        valueChange1D: -.95,
+        valueChange7D: 1.75,
+        currentPrice: 38458.74,
+        amount: 1,
+    });
+
+    const onBuy = () => {
+
+    }
+
+    const onSell = () => {
+        
+    }
+
     return (
         <View style = {styles.root}>
     
@@ -29,29 +41,43 @@ const CoinDetailsScreen = () => {
             </View>
 
             <View style = {styles.currentPriceContainer}>
-                <View>
+                <View style = {styles.labelContainer}>
                     <Text style = {styles.label}>Current Price</Text>
-                    <Text style = {styles.value}>{coinData.currentPrice}</Text>
+                    <Text style = {styles.value}>${coinData.currentPrice}</Text>
                 </View>
 
-                <View>
+                <View style = {styles.labelContainer}>
                     <Text style = {styles.priceChangeLabel}>1 Hour</Text>
-                    <Text style = {styles.priceChange}>{coinData.currentPrice}</Text>
+                    <Text style = {{fontSize: 20, color: coinData.valueChange1H > 0 ? "#399a70" : "#f10000"}}>{coinData.valueChange1H > 0 && "+"}{coinData.valueChange1H}%</Text>
                 </View>
 
-                <View>
+                <View style = {styles.labelContainer}>
                     <Text style = {styles.priceChangeLabel}>1 Day</Text>
-                    <Text style = {styles.priceChange}>{coinData.currentPrice}</Text>
+                    <Text style = {{fontSize: 20, color: coinData.valueChange1D > 0 ? "#399a70" : "#f10000"}}>{coinData.valueChange1D > 0 && "+"}{coinData.valueChange1D}%</Text>
                 </View>
 
-                <View>
+                <View style = {styles.labelContainer}>
                     <Text style = {styles.priceChangeLabel}>7 Days</Text>
-                    <Text style = {styles.priceChange}>{coinData.currentPrice}</Text>
+                    <Text style = {{fontSize: 20, color: coinData.valueChange7D > 0 ? "#399a70" : "#f10000"}}>{coinData.valueChange7D > 0 && "+"} {coinData.valueChange7D}%</Text>
                 </View>
-
             </View>
 
-            
+            <View style = {styles.positionRow}>
+                <Text>Position</Text>
+                <View style = {styles.positionDetails}>
+                    <Text>{coinData.symbol} {coinData.amount} (${coinData.amount*coinData.currentPrice})</Text>                
+                </View>
+            </View>
+
+            <View style = {styles.buttonRow}>
+                <Pressable style = {[styles.button, {backgroundColor: "#5AB858"}]} onPress={onBuy}>
+                    <Text style = {styles.buttonText}>Buy</Text>
+                </Pressable>
+
+                <Pressable style = {[styles.button, {backgroundColor: "#DE4545"}]} onPress={onSell}>
+                    <Text style = {styles.buttonText}>Sell</Text>
+                </Pressable>
+            </View>
 
         </View>
     )
@@ -105,18 +131,55 @@ const styles = StyleSheet.create({
         alignItems: "center"
     },
     currentPriceContainer: {
-        flexDirection: "row"
+        flexDirection: "row",
+        width: Dimensions.get("screen").width-20,
+        justifyContent: "space-between",
+        marginLeft: 10,
+        marginTop: 10
+    },
+    labelContainer: {
+        alignItems: "center",
+        justifyContent: "center"
     },
     label: {
-
+        fontSize: 12,
+        color: "grey"
     },
     value: {
-
+        fontSize: 22,
+        fontWeight: "bold"
     }, 
     priceChangeLabel: {
-
+        fontSize: 12,
+        color: "grey"
     },
     priceChange: {
-
+        fontSize: 20,
     },
+    positionRow: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginTop: 20,
+        marginHorizontal: 14,
+    },
+    positionDetails: {
+        flexDirection: "row",
+    },    
+    buttonRow: {        
+        flexDirection: "row",
+        justifyContent: "space-between",
+        marginHorizontal: 14,
+        marginTop: 413
+    },
+    button: {        
+        width: 170,
+        height: 48,
+        borderRadius: 40,
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    buttonText: {
+        color: "white",
+        fontSize: 24,
+    }
 })

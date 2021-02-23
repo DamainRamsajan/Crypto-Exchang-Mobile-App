@@ -36,7 +36,7 @@ const userDetails = [
 
 const RankingsScreen = () => {
     return (
-        <ScrollView >
+        <ScrollView nestedScrollEnabled={true}>
             <Image style = {styles.image} source ={require("../assets/images/rankings.jpg")} />
             <Text style = {styles.description}>Rankings</Text>            
             <FlatList 

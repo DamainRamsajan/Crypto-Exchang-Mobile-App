@@ -75,7 +75,7 @@ const portfolioCoins = [
 
 const PortfolioScreen = () => {
     return (
-        <ScrollView >
+        <ScrollView nestedScrollEnabled={true}>
             <Image style = {styles.image} source ={require("../assets/images/portfolio1.png")} />
             <Text style = {styles.heading}>Portfolio Balance</Text>
             <Text style = {styles.description}>$72,000</Text>            

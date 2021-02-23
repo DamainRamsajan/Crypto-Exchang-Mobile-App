@@ -76,7 +76,7 @@ const marketCoins = [
 
 const MarketScreen = () => {
     return (
-        <ScrollView >
+        <ScrollView nestedScrollEnabled={true}>
             <Image style = {styles.image} source ={require("../assets/images/market.jpg")} />
             <Text style = {styles.description}>Market</Text>            
             <FlatList 
