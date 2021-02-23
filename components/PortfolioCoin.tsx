@@ -1,7 +1,8 @@
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export interface PortfolioCoinProps {
     portfolioCoin: {
@@ -15,13 +16,14 @@ export interface PortfolioCoinProps {
 
 const PortfolioCoin = (props: PortfolioCoinProps) => {
 
+    const navigation = useNavigation ();
+
     const { portfolioCoin: {
         image, name, symbol, amount, valueUSD
     }} = props;
 
-    return (
-        <TouchableWithoutFeedback>
-            <View style = {styles.rowContainer}>
+    return (        
+            <Pressable onPress = {() => navigation.navigate("CoinDetails")} style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
                     <Image style = {styles.image} source = {{uri:image}} />
                     <View>
@@ -33,8 +35,7 @@ const PortfolioCoin = (props: PortfolioCoinProps) => {
                     <Text style = {styles.coinTotal}>${amount}</Text>
                     <Text style = {styles.coinCost}>${valueUSD}</Text>
                 </View>
-            </View>
-        </TouchableWithoutFeedback>
+            </Pressable>
     )
 }
 

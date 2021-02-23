@@ -1,7 +1,8 @@
 import React from 'react'
-import { Dimensions, Image, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, Image, Pressable, StyleSheet, Text, View } from 'react-native';
 import { Entypo, MaterialCommunityIcons, AntDesign, Ionicons, FontAwesome, FontAwesome5 } from '@expo/vector-icons';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 export interface MarketCoinProps {
     marketCoin: {
@@ -15,13 +16,14 @@ export interface MarketCoinProps {
 
 const MarketCoin = (props: MarketCoinProps) => {
 
+    const navigation = useNavigation();
+
     const { marketCoin: {
         image, name, symbol, valueChange, valueUSD
     }} = props;
 
-    return (
-        <TouchableWithoutFeedback>
-            <View style = {styles.rowContainer}>
+    return (        
+            <Pressable onPress = {() => navigation.navigate("CoinDetails")} style = {styles.rowContainer}>
                 <View style = {styles.leftContainer}>
                     {/* <FontAwesome name="viacoin" color="orange" size = {50}/> */}
                     <Image style = {styles.image} source = {{uri:image}} />
@@ -34,8 +36,7 @@ const MarketCoin = (props: MarketCoinProps) => {
                     <Text style = {styles.coinTotal}>${valueUSD}</Text>
                     <Text style = {{color: valueChange > 0 ? "#399a70" : "#f10000"}}>{valueChange > 0 && "+"}{valueChange} </Text>
                 </View>
-            </View>
-        </TouchableWithoutFeedback>
+            </Pressable>
     )
 }
 
