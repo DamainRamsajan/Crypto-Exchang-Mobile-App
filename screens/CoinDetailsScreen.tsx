@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Dimensions, StyleSheet, Text, View, Image, Pressable } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
 import CoinPriceGraph from '../components/CoinPriceGraph';
+import { useNavigation } from '@react-navigation/native';
 
 const historyString = JSON.stringify(
     [
@@ -189,12 +190,14 @@ const CoinDetailsScreen = () => {
         amount: 1,
     });
 
-    const onBuy = () => {
+    const navigation = useNavigation ();
 
+    const onBuy = () => {
+        navigation.navigate("CoinExchange", {isBuy: true, coinData})
     }
 
     const onSell = () => {
-        
+        navigation.navigate("CoinExchange", {isBuy: false, coinData})
     }
 
     return (
@@ -345,7 +348,7 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between",
         marginHorizontal: 14,
-        marginTop: 413
+        marginTop: 190
     },
     button: {        
         width: 170,
