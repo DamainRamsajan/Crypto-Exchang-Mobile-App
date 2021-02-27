@@ -4,6 +4,7 @@ import * as React from 'react';
 import { ColorSchemeName } from 'react-native';
 import CoinDetailsScreen from '../screens/CoinDetailsScreen';
 import CoinExchangeScreen from '../screens/CoinExchangeScreen';
+import WelcomeScreen from '../screens/WelcomeScreen';
 
 import NotFoundScreen from '../screens/NotFoundScreen';
 import { RootStackParamList } from '../types';
@@ -30,10 +31,16 @@ function RootNavigator() {
   return (
     <Stack.Navigator>
       <Stack.Screen 
+        name="Welcome" 
+        component={WelcomeScreen} 
+        options={{ headerShown: false }}
+      /> 
+      <Stack.Screen 
         name="Root" 
         component={BottomTabNavigator} 
         options={{ headerShown: false }}
       />   
+
       <Stack.Screen 
         name="CoinDetails" 
         component={CoinDetailsScreen} 

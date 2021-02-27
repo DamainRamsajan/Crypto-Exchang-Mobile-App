@@ -52,13 +52,6 @@ export default function BottomTabNavigator() {
           tabBarIcon: ({ color }) => <MaterialIcons name="leaderboard" color={color} size = {30}/>,
         }}
       />
-      {/* <BottomTab.Screen
-        name="CoinDetails"
-        component={CoinDetailsScreen}
-        options={{
-          tabBarIcon: ({ color }) => <FontAwesome name="user" color={color} size = {30} />,
-        }}
-      /> */}
       <BottomTab.Screen
         name="Profile"
         component={ProfileScreen}

@@ -42,16 +42,16 @@ const CoinExchangeScreen = () => {
         if (isBuy && parseFloat(coinUSDValue) > maxUSD){
             Alert.alert(`Not enough USD Money. Max = ${maxUSD}`)
         }
-        if (!isBuy && coinAmount > coinData.amount){
-            Alert.alert(`Not enough ${coinData.symbol} Coins. Max = ${coinData.amount}`)
+        if (!isBuy && coinAmount > coinData?.amount){
+            Alert.alert(`Not enough ${coinData?.symbol} Coins. Max = ${coinData?.amount}`)
         }
-    }
+    };
 
     return (
     <KeyboardAvoidingView behavior = {"padding"} style = {{flex: 1}} keyboardVerticalOffset = {100}>
             <Image style = {styles.image} source ={require("../assets/images/exchange.jpg")} />
-            <Text style={styles.heading}>{isBuy? "Buy " : "Sell "} {coinData.name}</Text>
-            <Text style = {styles.description}>1 {coinData.symbol} = ${coinData.currentPrice} USD</Text>    
+            <Text style={styles.heading}>{isBuy? "Buy " : "Sell "} {coinData?.name}</Text>
+            <Text style = {styles.description}>1 {coinData?.symbol} = ${coinData?.currentPrice} USD</Text>    
 
             <View style ={styles.inputGroup}>
                 <View style = {styles.inputContainer}>
@@ -61,7 +61,7 @@ const CoinExchangeScreen = () => {
                         value = {coinAmount}
                         onChangeText = {setCoinAmount}
                     />
-                    <Text>{coinData.symbol}</Text>
+                    <Text>{coinData?.symbol}</Text>
                     {/* <View style = {styles.caretContainer}>
                         <Pressable >
                             <Ionicons name="ios-caret-up" size={18} color="black" />
