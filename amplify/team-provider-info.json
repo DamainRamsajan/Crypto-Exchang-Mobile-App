@@ -11,5 +11,31 @@
       "StackId": "arn:aws:cloudformation:eu-west-2:312656457885:stack/amplify-cryptoapp-dev-140212/035fe500-78fc-11eb-8f80-069875bbffc4",
       "AmplifyAppId": "dk6epe17r0dnm"
     }
+  },
+  "vcrypto": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cryptoapp-vcrypto-165207-authRole",
+      "UnauthRoleArn": "arn:aws:iam::312656457885:role/amplify-cryptoapp-vcrypto-165207-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::312656457885:role/amplify-cryptoapp-vcrypto-165207-authRole",
+      "Region": "eu-west-3",
+      "DeploymentBucketName": "amplify-cryptoapp-vcrypto-165207-deployment",
+      "UnauthRoleName": "amplify-cryptoapp-vcrypto-165207-unauthRole",
+      "StackName": "amplify-cryptoapp-vcrypto-165207",
+      "StackId": "arn:aws:cloudformation:eu-west-3:312656457885:stack/amplify-cryptoapp-vcrypto-165207/fc21c790-2b6b-11ec-bc7a-0e15aa09d268",
+      "AmplifyAppId": "dq4k8cwimbtoj"
+    },
+    "categories": {
+      "auth": {
+        "cryptoappd393ee9e": {
+          "googleClientId": "226425612836-l3llti5c1lcji7cl7k52f4gpvocfms2j.apps.googleusercontent.com"
+        }
+      },
+      "function": {
+        "cryptoappd393ee9ePostConfirmation": {
+          "deploymentBucketName": "amplify-cryptoapp-vcrypto-165207-deployment",
+          "s3Key": "amplify-builds/cryptoappd393ee9ePostConfirmation-78415161623263516b46-build.zip"
+        }
+      }
+    }
   }
 }

@@ -13,7 +13,7 @@ const WelcomeScreen = () => {
   const navigation = useNavigation();
 
   const signInGoogle = () => {
-    navigation.navigate("CoinExchange");
+    navigation.navigate("Root");
   };
 
   return (

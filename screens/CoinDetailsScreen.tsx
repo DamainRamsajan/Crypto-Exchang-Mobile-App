@@ -74,7 +74,7 @@ const CoinDetailsScreen = () => {
 
   const onBuy = () => {
     //navigation.navigate("CoinExchange", {isBuy: true, coinData})
-    navigation.navigate("Welcome");
+    navigation.navigate("CoinExchange", { isBuy: true, coinData });
   };
 
   const onSell = () => {
